@@ -24,6 +24,6 @@ export async function createAppointment(req, res) {
   await db
     .collection(`appointments`)
     .add(newAppointment)
-    .then((doc) => res.status(201).send(`Document created, ID: ${doc.id}`))
+    .then((doc) => res.status(201).send({message: `Document created, ID: ${doc.id}`}))
     .catch((err) => res.status(500).send(err));
 }
